@@ -51,6 +51,7 @@ class VideoPlayerValue {
     this.volume = 1.0,
     this.playbackSpeed = 1.0,
     this.rotationCorrection = 0,
+    this.pixelWidthHeightRatio = 1.0,
     this.errorDescription,
   });
 
@@ -117,6 +118,9 @@ class VideoPlayerValue {
   /// Degrees to rotate the video (clockwise) so it is displayed correctly.
   final int rotationCorrection;
 
+  /// The [pixelWidthHeightRatio] of the currently loaded video.
+  final double pixelWidthHeightRatio;
+
   /// Indicates whether or not the video has been loaded and is ready to play.
   final bool isInitialized;
 
@@ -157,6 +161,7 @@ class VideoPlayerValue {
     double? volume,
     double? playbackSpeed,
     int? rotationCorrection,
+    double? pixelWidthHeightRatio,
     String? errorDescription = _defaultErrorDescription,
   }) {
     return VideoPlayerValue(
@@ -173,6 +178,8 @@ class VideoPlayerValue {
       volume: volume ?? this.volume,
       playbackSpeed: playbackSpeed ?? this.playbackSpeed,
       rotationCorrection: rotationCorrection ?? this.rotationCorrection,
+      pixelWidthHeightRatio:
+          pixelWidthHeightRatio ?? this.pixelWidthHeightRatio,
       errorDescription: errorDescription != _defaultErrorDescription
           ? errorDescription
           : this.errorDescription,
@@ -215,6 +222,7 @@ class VideoPlayerValue {
           errorDescription == other.errorDescription &&
           size == other.size &&
           rotationCorrection == other.rotationCorrection &&
+          pixelWidthHeightRatio == other.pixelWidthHeightRatio &&
           isInitialized == other.isInitialized;
 
   @override
@@ -232,6 +240,7 @@ class VideoPlayerValue {
         errorDescription,
         size,
         rotationCorrection,
+        pixelWidthHeightRatio,
         isInitialized,
       );
 }
@@ -439,6 +448,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
             duration: event.duration,
             size: event.size,
             rotationCorrection: event.rotationCorrection,
+            pixelWidthHeightRatio: event.pixelWidthHeightRatio,
             isInitialized: event.duration != null,
             errorDescription: null,
           );
