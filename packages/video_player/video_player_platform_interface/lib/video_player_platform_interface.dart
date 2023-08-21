@@ -216,6 +216,7 @@ class VideoEvent {
     this.duration,
     this.size,
     this.rotationCorrection,
+    this.pixelWidthHeightRatio,
     this.buffered,
     this.isPlaying,
   });
@@ -238,6 +239,8 @@ class VideoEvent {
   /// Only used if [eventType] is [VideoEventType.initialized].
   final int? rotationCorrection;
 
+  final double? pixelWidthHeightRatio;
+
   /// Buffered parts of the video.
   ///
   /// Only used if [eventType] is [VideoEventType.bufferingUpdate].
@@ -257,6 +260,7 @@ class VideoEvent {
             duration == other.duration &&
             size == other.size &&
             rotationCorrection == other.rotationCorrection &&
+            pixelWidthHeightRatio == other.pixelWidthHeightRatio &&
             listEquals(buffered, other.buffered) &&
             isPlaying == other.isPlaying;
   }
@@ -267,6 +271,7 @@ class VideoEvent {
         duration,
         size,
         rotationCorrection,
+        pixelWidthHeightRatio,
         buffered,
         isPlaying,
       );
