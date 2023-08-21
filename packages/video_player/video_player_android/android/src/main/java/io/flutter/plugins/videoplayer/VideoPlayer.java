@@ -312,6 +312,7 @@ final class VideoPlayer {
         }
         event.put("width", width);
         event.put("height", height);
+        event.put("pixelWidthHeightRatio", exoPlayer.getVideoFormat().pixelWidthHeightRatio);
 
         // Rotating the video with ExoPlayer does not seem to be possible with a Surface,
         // so inform the Flutter code that the widget needs to be rotated to prevent
