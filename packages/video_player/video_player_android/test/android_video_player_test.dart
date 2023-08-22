@@ -275,6 +275,7 @@ void main() {
                       'width': 1920,
                       'height': 1080,
                       'rotationCorrection': 180,
+                      'pixelWidthHeightRatio': 1.0,
                     }),
                     (ByteData? data) {});
 
@@ -360,12 +361,14 @@ void main() {
               duration: const Duration(milliseconds: 98765),
               size: const Size(1920, 1080),
               rotationCorrection: 0,
+              pixelWidthHeightRatio: 1.0,
             ),
             VideoEvent(
               eventType: VideoEventType.initialized,
               duration: const Duration(milliseconds: 98765),
               size: const Size(1920, 1080),
               rotationCorrection: 180,
+              pixelWidthHeightRatio: 1.0,
             ),
             VideoEvent(eventType: VideoEventType.completed),
             VideoEvent(
